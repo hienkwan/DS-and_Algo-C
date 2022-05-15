@@ -13,6 +13,17 @@ void Display(struct Array arr){
     for(i=0;i<arr.length;i++){
         printf("%d ",arr.A[i]);
     }
+    printf("\n");
+}
+
+void insert(int index,int val,struct Array *arr){
+    if(index>=0&&index<=arr->length){
+        for(int i=arr->length;i>index-1;i--){
+            arr->A[i]=arr->A[i-1];
+        }
+        arr->A[index]=val;
+        arr->length+=1;
+    }
 }
 
 int main() {
@@ -32,6 +43,10 @@ int main() {
         scanf("%d",&arr.A[i]);
     }
     arr.length=n;
+
+    Display(arr);
+
+    insert(1,6,&arr);
 
     Display(arr);
 
